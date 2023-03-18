@@ -8,7 +8,9 @@ import sys
 from typing import Optional
 
 OUTPUTS_STR = ""
+OUTPUTS_MAXLEN = 256
 TMP_FILE_PATH = "./tmp/tmp.py"
+
 
 async def read_stream(stream, callback):
     global OUTPUTS_STR
@@ -61,7 +63,7 @@ def gen_singular(main_py_impl_file_path: str, func_list_json_file_path: str, gen
         new_abst_func["description"] = func["description"]
         new_abst_func["examples"] = []
         for example in func["examples"]:
-            new_example_str = f"({', '.join(str(example['args']))}) returns {str(example['expected'])}"
+            new_example_str = f"({', '.join(str(example['args']))}) returns {str(example['expected'] if 'expected' in example else 'None')}"
             new_abst_func["examples"].append(new_example_str)
 
         abst_func_list.append(new_abst_func)
@@ -145,7 +147,8 @@ async def start_debugger(main_py_impl_file_path: str, gen_py_path: str, func_lis
     if process.returncode != 0:
         print("\n\n ! error occurs, start re-generating new functions")
         print(OUTPUTS_STR)
-        gen_singular(main_py_impl_file_path, func_list_json_file_path, gen_py_path, error_str=OUTPUTS_STR)
+        CUT_OUTPUTS_STR = OUTPUTS_STR[-OUTPUTS_MAXLEN:] if len(OUTPUTS_STR) > OUTPUTS_MAXLEN else OUTPUTS_STR
+        gen_singular(main_py_impl_file_path, func_list_json_file_path, gen_py_path, error_str=CUT_OUTPUTS_STR)
         print("!!!!!!!!!!!!!!!!! ai debug finished. ctrl-c to manually exit (im sorry)")
         # TODO: ugliest system, need to fix
 

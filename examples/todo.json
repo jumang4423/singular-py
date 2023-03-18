@@ -1,0 +1,32 @@
+[
+  {
+    "name": "show_todo",
+    "description": "show todo list based on a argument of todo list. outputs like 1. hoge\n 2. fuga...",
+    "examples": [
+      {
+        "args": [["eat apple", "sleep well"]]
+      },
+      {
+        "args": [["hoge", "fuga"]]
+      }
+    ]
+  },
+  {
+    "name": "add_todo",
+    "description": "add user input to argument todo list. in the function, take input() to get user todo, then append to the argument todo list.",
+    "examples": [
+      {
+        "args": [["eat apple", "sleep well"]]
+      }
+    ]
+  },
+  {
+    "name": "remove_todo",
+    "description": "remove todo list based on a argument of todo list. in the function, take input() to ask user which todo to remove by index number, then remove the todo from the argument todo list.",
+    "examples": [
+      {
+        "args": [["eat apple", "sleep well"]]
+      }
+    ]
+  }
+]

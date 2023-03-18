@@ -2,7 +2,7 @@
   {
     "name": "fibonacci",
     "description": "calculate the fibonacci number of a given number",
-  "examples": [
+    "examples": [
       {
         "args": [3],
         "expected": 2
