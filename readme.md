@@ -5,10 +5,16 @@ attension: gpt4 is required.
 auto test specific functions then fix based on python behavior, based on given python impl and function list json.
 
 # usage
-0. export your OPEN_AI_KEY to shell environment.
+-1. export your OPEN_AI_KEY to shell environment.
 
 ``` bash
 export OPENAI_API_KEY='sk-...'
+```
+
+0. install python dependancies
+
+``` bash
+pip install -r requirements.txt
 ```
 
 1. specify three arguments to singular.py.
@@ -34,4 +40,3 @@ if error occured, singular.py automatically re-generate functions.
 
 3. finish debbuging
 once you satisfied with your python app behavior, exit singular.py by ctrl-c then goto ./build folder now you can find auto generated functions. 
-
