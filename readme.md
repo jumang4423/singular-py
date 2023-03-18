@@ -30,7 +30,7 @@ pip install -r requirements.txt
  
 here is a example:
 ``` bash
-python singular.py --name add_test --app examples/add.py --fun examples/add.json
+python singular.py --name todo_test --app examples/todo.py --fun examples/todo.json
 ```
 
 2. intract with your python app on singular.py 
