@@ -146,7 +146,7 @@ async def start_debugger(main_py_impl_file_path: str, gen_py_path: str, func_lis
         print("\n\n ! error occurs, start re-generating new functions")
         print(OUTPUTS_STR)
         gen_singular(main_py_impl_file_path, func_list_json_file_path, gen_py_path, error_str=OUTPUTS_STR)
-        print("ai debug finished. exit")
+        print("!!!!!!!!!!!!!!!!! ai debug finished. ctrl-c to manually exit (im sorry)")
         # TODO: ugliest system, need to fix
 
 
