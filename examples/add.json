@@ -5,11 +5,11 @@
     "examples": [
       {
         "args": [1, 2],
-        "expected": 3
+        "expected": "3"
       },
       {
         "args": [44, 23],
-        "expected": 67
+        "expected": "67"
       }
     ]
   }

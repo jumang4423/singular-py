@@ -11,12 +11,15 @@ auto test specific functions then fix based on python behavior, based on given p
 export OPENAI_API_KEY='sk-...'
 ```
 
-1. specify two files to singular.py.
+1. specify three arguments to singular.py.
 
-- function list json file
+- project name (--name)
+  name of your program project
+
+- function list json file (--fun)
   function list to automatically to be managed by ai.
 
-- main python program
+- main python program (--app)
   you write python program, but you can use functions in the function list.
  
 here is a example:
