@@ -89,7 +89,7 @@ Error messages from terminal (if any):
 {error_str if error_str else "There is no error"}
 ```
 Based on the above information, please generate code based on functions JSON array, or debug ai generated functions in python that work with the given main Python code.
-You only have to return the AI-generated function body in python, not the whole function.
+You only have to return the AI-generated function body in python, which your response starts from "def" which how python defines a function.
 """
 
     completion = openai.ChatCompletion.create(
@@ -116,6 +116,9 @@ async def start_debugger(main_py_impl_file_path: str, gen_py_path: str, func_lis
     # if tmp folder does not exist, create it
     if not os.path.isdir("tmp"):
         os.mkdir("tmp")
+    # rm tmp
+    if os.path.isfile(TMP_FILE_PATH):
+        os.remove(TMP_FILE_PATH)
     with open(TMP_FILE_PATH, "w") as f:
         f.write(tmp_str)
     global OUTPUTS_STR
