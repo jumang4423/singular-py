@@ -144,6 +144,7 @@ async def start_debugger(main_py_impl_file_path: str, gen_py_path: str, func_lis
         print(OUTPUTS_STR)
         gen_singular(main_py_impl_file_path, func_list_json_file_path, gen_py_path, error_str=OUTPUTS_STR)
         print("ai debug finished. exit")
+        # TODO: ugliest system, need to fix
 
 
 # parse args
@@ -169,4 +170,5 @@ if not is_project_generated(name):
     gen_singular(app, fun, os.path.join("build", f"{name}_generated.py"))
 
 print("start debugging...")
+# TODO: need to impl continuous debugging right?
 asyncio.run(start_debugger(app, os.path.join("build", f"{name}_generated.py"), fun))
